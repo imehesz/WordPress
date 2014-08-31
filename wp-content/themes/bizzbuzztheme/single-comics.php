@@ -1,8 +1,13 @@
 <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/buzz/css/style.css" />
 <?php
+  global $related; 
+
   include( TEMPLATEPATH . '/buzz/ComicParser.php' );
+  $rels = $related->show($post->ID, true);
+
   $cp = new ComicParser($post);
 
+/*
   echo $cp->getThumbnail();
   echo $cp->getCover();
   echo $cp->getWriter();
@@ -11,6 +16,7 @@
   echo $cp->getExcerpt();
   echo $cp->getContent();
   echo $cp->getPagesForJs();
+  */
 
   $ENV = "dev";
   if ($ENV == "dev") {
@@ -62,6 +68,14 @@
 
             <button class="btn btn-success" id="btn-buzz-reader">Launch Buzz Reader</button>
 
+            <?php if(sizeof($rels)>0) : ?>
+              <h3>Related Comics</h3>
+              <div>
+                <?php foreach($rels as $rel): ?>
+                  <?php echo $rel->post_title; ?>
+                <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
         <?php endwhile; ?>
         <?php else: ?>
 
