@@ -232,7 +232,7 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 
             <div class="icon32" id="icon-options-general"></div>
 
-            <h2><a href="<?php echo $developer_uri ?>" target="_blank">DevDmBootstrap3</a></h2>
+            <h2><a href="<?php echo $developer_uri ?>" target="_blank">BizzBuzz based on DevDmBootstrap3</a></h2>
 
                <?php
 

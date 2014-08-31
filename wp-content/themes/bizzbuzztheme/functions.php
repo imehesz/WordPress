@@ -4,7 +4,7 @@
 // Theme Information
 ////////////////////////////////////////////////////////////////////
 
-    $themename = "DevDmBootstrap3";
+    $themename = "BizzBuzz based on DevDmBootstrap3";
     $developer_uri = "http://devdm.com";
     $shortname = "dm";
     $version = '1.40';
