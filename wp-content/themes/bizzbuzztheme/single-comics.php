@@ -53,6 +53,163 @@
     <?php get_sidebar( 'left' ); ?>
 
     <div class="col-md-<?php devdmbootstrap3_main_content_width(); ?> dmbs-main">
+        <?php // theloop
+          if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+          <div class="row title-and-book-info">
+            <div class="col-sm-12">
+              <h1 class="page-header"><?php echo the_title();?></h1>
+
+              <h4>
+                <span ng-repeat="tag in current.tagsArr">
+                  <a href="/comics/search/{{tag.trim()}}" class="label label-default">{{tag}}</a>
+                </span>
+              </h4>
+
+              <p class="lead">
+                <?php if ($cp->getWriter()): ?>
+                  <div>Written by <strong><?php echo $cp->getWriter(); ?></strong></div>
+                <?php endif; ?>
+                <?php if ($cp->getIllustrator()): ?>
+                  <div>Art by <strong><?php echo $cp->getIllustrator(); ?></strong></div>
+                <?php endif; ?>
+                <div>Pages <strong><?php echo sizeof($cp->getPages()); ?></strong></div>
+                <?php if ($cp->getPublishDate()): ?>
+                  <div ng-show="current.publishedDate">Published <strong><?php echo $cp->getPublishDate(); ?></strong></div>
+                <?php endif; ?>
+              </p>
+            </div>
+            <!--
+            <div class="col-sm-6">
+            <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-1319358860215477"
+            data-ad-slot="6070069179"
+            data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            </div>
+            -->
+          </div> <!-- title-and-book-info -->
+
+          <div class="row art-and-description">
+            <div class="col-sm-6">
+              <div>
+                <a href="javascript:void(0)"><img src="<?php echo $cp->getCover(); ?>" class="img-responsive" /></a>
+              </div>
+              <p></p>
+            </div>
+
+
+            <div class="col-sm-6">
+              <p>
+                <button class="btn btn-success btn-lg" id="btn-buzz-reader">Launch Buzz Reader</button>
+                or <a target="_blank" href="http://bizzbuzzcomics.com/read/how-to-use-the-buzz-reader-TH4nr">What's a Buzz Reader!?</a>
+              </p>
+  
+              <p class="text-muted">About the book</p>
+  
+              <p><?php echo $cp->getExcerpt(); ?></p>
+              <p><?php echo the_content(); ?></p>
+  
+              <p class="text-muted">Permalink</p>
+              <p>
+                <a href="<?php echo get_permalink($cp->getId());?>"><?php echo get_permalink($cp->getId()); ?></a>
+              </p>
+  
+              <p class="text-center">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- bizzbuzz-read-top -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1319358860215477" data-ad-slot="6070069179" data-ad-format="auto"></ins>
+                <script>
+                  (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </p>
+  
+              <p class="text-muted">Share</p>
+              <p>
+                <span class='st_sharethis_hcount' displayText='ShareThis'></span>
+                <span class='st_facebook_hcount' displayText='Facebook'></span>
+                <span class='st_twitter_hcount' displayText='Tweet'></span>
+                <span class='st_pinterest_hcount' displayText='Pinterest'></span>
+                <span class='st_googleplus_hcount' displayText='Google +'></span>
+                <p></p>
+              </p>
+  
+              <p class="text-muted">Rate this comic</p>
+              <p>
+                <div class="rw-ui-container"></div>
+              </p>
+  
+              <hr/>
+  
+              <div class="text-center">
+                <p>
+                <?php if ($cp->getLicense()) : ?>
+                  <?php echo $cp->getLicense(); ?>
+                <?php else: ?>
+                  <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+                <?php endif; ?>
+                </p>
+              </div>
+            </div>
+          </div> <!-- art-and-description -->
+
+          <?php if(is_array($rels) && sizeof($rels)>0) : ?>
+            <section>
+              <hr>
+              <div class="row" ng-show="current.related">
+                <div class="col-sm-12">
+                  <h3>Related Comics</h3>
+                </div>
+              </div>
+              <div class="row related-container">
+                <?php foreach($rels as $rel): ?>
+                  <?php 
+                    $cpRel = new ComicParser($rel); 
+                  ?>
+                  <?php if ($rel->post_status=="publish") : ?>
+                    <div class="col-sm-2" title="<?php echo $cpRel->getTitle();?>">
+                      <a href="<?php echo get_permalink($cpRel->getId());?>">
+                        <img class="img-responsive" src="<?php echo $cpRel->getThumbnail();?>" />
+                      </a>
+                      <a href="<?php echo get_permalink($cpRel->getId());?>"><?php echo $cpRel->getTitle(); ?></a>
+                    </div>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </div>
+              <hr>
+            </section>
+
+            <div class="row disqus">
+              <div class="col-sm-12">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                var disqus_shortname = 'bizzbuzzcomics'; // required: replace example with your forum shortname
+
+                /* * * DON'T EDIT BELOW THIS LINE * * */
+                (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+            </div> <!-- .disqus -->
+
+          <?php endif; ?>
+
+          <?php endwhile; ?>
+        <?php else: ?>
+            <?php get_404_template(); ?>
+        <?php endif; ?>
+      
+
+      <?php /*
 
         <?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -87,7 +244,7 @@
             <?php get_404_template(); ?>
 
         <?php endif; ?>
-
+*/ ?>
     </div>
 
     <?php //get the right sidebar ?>

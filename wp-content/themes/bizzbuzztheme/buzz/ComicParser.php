@@ -13,6 +13,8 @@
     public $excerpt;
     public $content;
     public $related;
+    public $publishDate;
+    public $license;
 
     function __construct($comic) {
       $this->comic = $comic;
@@ -22,6 +24,29 @@
     function getId() {
       return $this->comicId;
     }
+
+    function getPublishDate() {
+      if ($this->publishDate) {
+        return $this->publishDate;
+      }
+
+      $publish_meta = get_post_meta($this->comicId, "publishdate", true);
+      if ($publish_meta && sizeof($publish_meta)>0) {
+        return $this->publishDate = $publish_meta[0]["date"];
+      }
+    }
+
+    function getLicense() {
+      if ($this->license) {
+        return $this->license;
+      }
+
+      $license_meta = get_post_meta($this->comicId, "license", true);
+      if ($license_meta && sizeof($license_meta)>0) {
+        return $this->license = $license_meta[0]["license"];
+      }
+    }
+
 
     function getPages() {
       if ($this->pages) {
