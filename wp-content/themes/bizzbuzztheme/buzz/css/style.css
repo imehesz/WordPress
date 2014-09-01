@@ -195,9 +195,12 @@ nav.navbar-default.gigantor {
 color: orange;
 }
 
-.navbar-default .navbar-nav>li>a.active {
-color: orange;
-border: 1px solid orange;
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+  color: orange;
+  border: 1px solid orange;
+  background-color: #fff;
 }
 
 h3 a {

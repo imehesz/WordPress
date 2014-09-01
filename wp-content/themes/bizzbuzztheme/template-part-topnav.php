@@ -1,10 +1,10 @@
-
 <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
 
     <div class="row dmbs-top-menu">
-        <nav class="navbar navbar-inverse" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
+                    <a class="navbar-brand" href="http://bizzbuzzcomics.com">Bizz Buzz Comics</a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
                         <span class="sr-only"><?php _e('Toggle navigation','devdmbootstrap3'); ?></span>
                         <span class="icon-bar"></span>
@@ -12,7 +12,6 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-
                 <?php
                 wp_nav_menu( array(
                         'theme_location'    => 'main_menu',
