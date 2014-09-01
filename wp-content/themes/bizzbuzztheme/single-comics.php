@@ -68,11 +68,16 @@
 
             <button class="btn btn-success" id="btn-buzz-reader">Launch Buzz Reader</button>
 
-            <?php if(sizeof($rels)>0) : ?>
+            <?php if(is_array($rels) && sizeof($rels)>0) : ?>
               <h3>Related Comics</h3>
               <div>
                 <?php foreach($rels as $rel): ?>
-                  <?php echo $rel->post_title; ?>
+                  <?php 
+                    $cpRel = new ComicParser($rel); 
+                  ?>
+                  <?php if ($rel->post_status=="publish") : ?>
+                    <a href="<?php echo get_permalink($cpRel->getId());?>"><?php echo $cpRel->getTitle(); ?></a>
+                  <?php endif; ?>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>

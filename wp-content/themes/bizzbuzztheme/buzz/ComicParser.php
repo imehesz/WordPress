@@ -12,10 +12,15 @@
     public $title;
     public $excerpt;
     public $content;
+    public $related;
 
     function __construct($comic) {
       $this->comic = $comic;
       $this->comicId = $comic->ID;
+    }
+
+    function getId() {
+      return $this->comicId;
     }
 
     function getPages() {
@@ -64,7 +69,7 @@
         return $this->title;
       }
 
-      return $this->title=the_title();
+      return $this->title = $this->comic->post_title;
     }
 
     function getImages() {
@@ -122,5 +127,5 @@
         return $this->cover = $this->images[0]["cover"];
       }
     }
-
+    
   }
