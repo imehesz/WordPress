@@ -7,7 +7,7 @@ position:relative
 body {
 height: 100%;
         padding-top: 100px;
-        /*background-image: url(https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/01.jpg);*/
+        background-image: url(https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/01.jpg);
         -webkit-transition: background-image 0.5s ease-in-out;
         -moz-transition: background-image 0.5s ease-in-out;
         -ms-transition: background-image 0.5s ease-in-out;
@@ -35,13 +35,12 @@ color: orange;
 }
 
 .inner-content {
-padding: 20px 0;
-         background-color: #fff;
-         -moz-box-shadow:    0 0 35px #000;
-         -webkit-box-shadow: 0 0 25px #000;
-         box-shadow:         0 0 25px #000;
-         z-index: 10;
-position: relative;
+  background-color: #fff;
+  -moz-box-shadow:    0 0 35px #000;
+  -webkit-box-shadow: 0 0 25px #000;
+  box-shadow:         0 0 25px #000;
+  z-index: 10;
+  position: relative;
 }
 
 .fog {

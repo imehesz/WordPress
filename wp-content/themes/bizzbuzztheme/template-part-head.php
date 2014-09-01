@@ -1,3 +1,5 @@
+<div class="fog"></div>
+<div class="container inner-content">
 <?php global $dm_settings; ?>
 
 <div class="container dmbs-container">
@@ -28,3 +30,4 @@
     </div>
 
 <?php endif; ?>
+</div>
