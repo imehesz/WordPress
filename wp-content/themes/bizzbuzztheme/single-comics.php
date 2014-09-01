@@ -365,3 +365,52 @@
 
   });
 </script>
+
+<!-- rating widget -->
+<script type="text/javascript">(function(d, t, e, m){
+    // Async Rating-Widget initialization.
+    window.RW_Async_Init = function(){
+    RW.init({
+huid: "181829",
+uid: "ca11c87f64fb906b33ef7a7ee80c4a7d",
+source: "website",
+options: {
+"advanced": {
+"layout": {
+"align": {
+"hor": "center",
+"ver": "top"
+}
+},
+"font": {
+"hover": {
+"color": "#906461"
+},
+"color": "#906461"
+}
+},
+"boost": {
+"rate": 2
+},
+  "label": {
+    "background": "#FFEDA4"
+  },
+  "style": "oxygen1"
+  }
+});
+RW.render();
+};
+
+// Append Rating-Widget JavaScript library.
+var randomId = Math.floor(Math.random()*(+new Date()));
+var rw, s = d.getElementsByTagName(e)[0], id = "rw-js-" + randomId,
+    l = d.location, ck = "Y" + t.getFullYear() +
+    "M" + t.getMonth() + "D" + t.getDate(), p = l.protocol,
+    f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+    a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+if (d.getElementById(id)) return;              
+rw = d.createElement(e);
+rw.id = id; rw.async = true; rw.type = "text/javascript";
+rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+s.parentNode.insertBefore(rw, s);
+}(document, new Date(), "script", "rating-widget.com/"));</script>
