@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/buzz/css/style.css" />
 <?php
   global $related; 
 
@@ -60,11 +59,11 @@
             <div class="col-sm-12">
               <h1 class="page-header"><?php echo the_title();?></h1>
 
-              <h4>
-                <span ng-repeat="tag in current.tagsArr">
-                  <a href="/comics/search/{{tag.trim()}}" class="label label-default">{{tag}}</a>
-                </span>
+              <h4 class="tag-list">
+                <?php the_terms( $post->ID, 'tag', '<span>', '</span><span> ', '</span>' ); ?>
               </h4>
+
+              <!-- <a href="/comics/search/{{tag.trim()}}" class="label label-default">{{tag}}</a> -->
 
               <p class="lead">
                 <?php if ($cp->getWriter()): ?>
