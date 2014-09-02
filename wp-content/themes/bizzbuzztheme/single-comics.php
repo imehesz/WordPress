@@ -104,7 +104,7 @@
             <div class="col-sm-6">
               <p>
                 <button class="btn btn-success btn-lg" id="btn-buzz-reader">Launch Buzz Reader</button>
-                or <a target="_blank" href="http://bizzbuzzcomics.com/read/how-to-use-the-buzz-reader-TH4nr">What's a Buzz Reader!?</a>
+                or <a target="_blank" href="/?comics=how-to-use-the-buzz-reader">What's a Buzz Reader!?</a>
               </p>
   
               <p class="text-muted">About the book</p>
@@ -206,44 +206,6 @@
         <?php else: ?>
             <?php get_404_template(); ?>
         <?php endif; ?>
-      
-
-      <?php /*
-
-        <?php // theloop
-        if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-            <h2 class="page-header"><?php the_title() ;?></h2>
-            <?php the_content(); ?>
-            <?php wp_link_pages(); ?>
-            <?php comments_template(); ?>
-
-            <?php if($cp->getThumbnail()) : ?> 
-              <img src="<?php echo $cp->getThumbnail(); ?>" />
-            <?php endif; ?>
-
-            <button class="btn btn-success" id="btn-buzz-reader">Launch Buzz Reader</button>
-
-            <?php if(is_array($rels) && sizeof($rels)>0) : ?>
-              <h3>Related Comics</h3>
-              <div>
-                <?php foreach($rels as $rel): ?>
-                  <?php 
-                    $cpRel = new ComicParser($rel); 
-                  ?>
-                  <?php if ($rel->post_status=="publish") : ?>
-                    <a href="<?php echo get_permalink($cpRel->getId());?>"><?php echo $cpRel->getTitle(); ?></a>
-                  <?php endif; ?>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
-        <?php endwhile; ?>
-        <?php else: ?>
-
-            <?php get_404_template(); ?>
-
-        <?php endif; ?>
-*/ ?>
     </div>
 
     <?php //get the right sidebar ?>
