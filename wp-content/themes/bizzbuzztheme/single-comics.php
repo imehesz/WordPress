@@ -59,9 +59,13 @@
             <div class="col-sm-12">
               <h1 class="page-header"><?php echo the_title();?></h1>
 
-              <h4 class="tag-list">
-                <?php the_terms( $post->ID, 'tag', '<span>', '</span><span> ', '</span>' ); ?>
-              </h4>
+                <?php $tags = $cp->getTags(); if(is_array($tags) && sizeof($tags)>0) : ?>
+                  <h4 class="tag-list">
+                    <?php foreach($tags as $tag) : ?>
+                      <span class="label label-default"><?php echo $tag->name; ?></span>
+                    <?php endforeach; ?>
+                  </h4>
+                <?php endif; ?>
 
               <!-- <a href="/comics/search/{{tag.trim()}}" class="label label-default">{{tag}}</a> -->
 
@@ -158,7 +162,7 @@
           <?php if(is_array($rels) && sizeof($rels)>0) : ?>
             <section>
               <hr>
-              <div class="row" ng-show="current.related">
+              <div class="row">
                 <div class="col-sm-12">
                   <h3>Related Comics</h3>
                 </div>

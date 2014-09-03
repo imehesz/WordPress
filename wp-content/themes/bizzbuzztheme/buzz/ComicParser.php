@@ -15,10 +15,19 @@
     public $related;
     public $publishDate;
     public $license;
+    public $tags;
 
     function __construct($comic) {
       $this->comic = $comic;
       $this->comicId = $comic->ID;
+    }
+
+    function getTags() {
+      if($this->tags) {
+        return $this->tags;
+      }
+
+      return $this->tags = get_the_terms($comic->ID, "tag");
     }
 
     function getId() {
