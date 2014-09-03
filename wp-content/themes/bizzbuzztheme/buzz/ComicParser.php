@@ -86,7 +86,7 @@
         return $this->excerpt;
       }
 
-      return $this->excerpt = get_the_excerpt();
+      return $this->excerpt = $this->comic->post_excerpt;
     }
 
     function getTitle() {
