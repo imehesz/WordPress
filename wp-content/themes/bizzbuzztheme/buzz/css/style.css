@@ -422,3 +422,27 @@ overflow: initial;
 height: auto;
 overflow: initial;
   }
+
+
+  /* lcp paginator */
+  ul.lcp_paginator {
+    text-align: center;
+  }
+
+  ul.lcp_paginator li {
+    display: inline-block;
+    border: 1px solid #aaa;
+    margin: 2px;
+    padding: 10px;
+    color: #aaa;
+    font-weight: bolder;
+  }
+
+  ul.lcp_paginator li:hover {
+    border: 1px solid orange;
+  }
+
+  ul.lcp_paginator li a {
+    font-weight: normal;
+    color: orange;
+  }
