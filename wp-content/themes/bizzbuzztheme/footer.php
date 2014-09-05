@@ -39,6 +39,22 @@
 </section>
 <!-- end main container -->
 
+  <?php 
+    // cheating //
+    $bgArr = array(
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/01.jpg",
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/02.jpg",
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/03.jpg",
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/04.jpg",
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/05.jpg",
+        "https://7df183b2094d4f145c8b30e63ac113ad9805fff6.googledrive.com/host/0B55OYxnBow_9VWhzZXVybk1YUlU/06.jpg",
+    );
+  ?>
+  <style>
+    body {
+      background-image: url(<?php echo $bgArr[array_rand($bgArr)]; ?>);
+    }
+  </style>
 <?php wp_footer(); ?>
 </body>
 </html>
