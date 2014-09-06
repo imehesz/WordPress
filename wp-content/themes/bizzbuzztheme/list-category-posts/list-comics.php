@@ -14,9 +14,9 @@
 $lcp_display_output = '';
 $cnt = 0;
 $randAd = array(
-  rand(1,18),
-  rand(1,18),
-  rand(1,18)
+  rand(0,3),
+  rand(4,18),
+  rand(5,18)
 );
 
 // Show category link:

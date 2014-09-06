@@ -570,13 +570,12 @@ width:70px;
 height: auto;
 overflow: initial;
   }
-}
 
   .books-book-image-wrapper {
 height: auto;
 overflow: initial;
   }
-
+}
 
   /* lcp paginator */
   ul.lcp_paginator {
