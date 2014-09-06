@@ -8,8 +8,10 @@
 
 <?php
   $args = array(
-    'post_type'  => "comics",
-    'meta_key'   => 'ComicStatus',
+    'post_type'   => "comics",
+    'meta_key'    => 'ComicStatus',
+    "meta_value"  => "true",
+    "meta_compare"     => "LIKE"
   );
 
   $randArgs = array(
