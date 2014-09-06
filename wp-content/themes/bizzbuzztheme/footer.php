@@ -56,5 +56,7 @@
     }
   </style>
 <?php wp_footer(); ?>
+
+<link rel='stylesheet' href='<?php echo get_template_directory_uri(); ?>/buzz/css/style.css' type='text/css' media='all' />
 </body>
 </html>

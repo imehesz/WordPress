@@ -1,31 +1,8 @@
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <?php
 
   include( TEMPLATEPATH . '/buzz/ComicParser.php' );
-/*
-Plugin Name: List Category Posts - Template "Default"
-Plugin URI: http://picandocodigo.net/programacion/wordpress/list-category-posts-wordpress-plugin-english/
-Description: Template file for List Category Post Plugin for Wordpress which is used by plugin by argument template=value.php
-Version: 0.9
-Author: Radek Uldrych & Fernando Briano 
-Author URI: http://picandocodigo.net http://radoviny.net
-*/
-
-/* Copyright 2009  Radek Uldrych  (email : verex@centrum.cz), Fernando Briano (http://picandocodigo.net)
-
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 3 of the License, or 
-any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
 
 /**
  * The format for templates changed since version 0.17.
@@ -35,6 +12,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 /* This is the string which will gather all the information.*/
 $lcp_display_output = '';
+$cnt = 0;
+$randAd = array(
+  rand(1,18),
+  rand(1,18),
+  rand(1,18)
+);
 
 // Show category link:
 $lcp_display_output .= $this->get_category_link('strong');
@@ -98,6 +81,25 @@ foreach ($this->catlist->get_categories_posts() as $single){
   $lcp_display_output .= '</div>';
   //Close li tag
   $lcp_display_output .= '</div>';
+
+  if($cnt==$randAd[0] || $cnt==$randAd[1] || $cnt==$randAd[2]){
+    $lcp_display_output .= "<div class='books-book-wrapper col-lg-3 col-md-4 portfolio-item'>";
+    $lcp_display_output .= "<div class='books-book-image-wrapper'>";
+      $lcp_display_output .= <<<ADHERE
+        <!-- bizzbuzz-read-top -->
+        <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-1319358860215477"
+        data-ad-slot="6070069179"
+        data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+ADHERE;
+    $lcp_display_output .= "</div></div>";
+  }
+
+  $cnt++;
 }
 
 $lcp_display_output .= '</div></div>';

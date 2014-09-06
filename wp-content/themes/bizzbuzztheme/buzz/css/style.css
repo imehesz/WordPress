@@ -528,7 +528,7 @@ padding:0;
 }
 
 .books-book-wrapper {
-height: 450px;
+height: 500px;
 overflow: hidden;
 }
 
@@ -570,6 +570,7 @@ width:70px;
 height: auto;
 overflow: initial;
   }
+}
 
   .books-book-image-wrapper {
 height: auto;
@@ -599,8 +600,3 @@ overflow: initial;
     font-weight: normal;
     color: orange;
   }
-
-
-
-
-
