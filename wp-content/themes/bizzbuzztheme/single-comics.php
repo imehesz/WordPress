@@ -78,7 +78,7 @@
                 <?php endif; ?>
                 <div>Pages <strong><?php echo sizeof($cp->getPages()); ?></strong></div>
                 <?php if ($cp->getPublishDate()): ?>
-                  <div ng-show="current.publishedDate">Published <strong><?php echo $cp->getPublishDate(); ?></strong></div>
+                  <div>Published <strong><?php echo $cp->getPublishDate(); ?></strong></div>
                 <?php endif; ?>
               </p>
             </div>
@@ -99,7 +99,7 @@
           <div class="row art-and-description">
             <div class="col-sm-6">
               <div>
-                <a href="javascript:void(0)"><img src="<?php echo $cp->getCover(); ?>" class="img-responsive" /></a>
+                <a href="javascript:void(0)"><img src="<?php echo $cp->getCover(); ?>" class="img-responsive cover" /></a>
               </div>
               <p></p>
             </div>
@@ -184,7 +184,9 @@
               </div>
               <hr>
             </section>
+          <?php endif; ?>
 
+          <div style="clear:both"></div>
             <div class="row disqus">
               <div class="col-sm-12">
                 <div id="disqus_thread"></div>
@@ -204,8 +206,6 @@
               </div>
             </div> <!-- .disqus -->
 
-          <?php endif; ?>
-
           <?php endwhile; ?>
         <?php else: ?>
             <?php get_404_template(); ?>
@@ -220,7 +220,7 @@
 
 <div id="bizzbuzz-page-cache" style="display:none;"></div>
 
-<div id="frame" ng-show="buzzOn">
+<div id="frame">
   <div class="click-action left"></div>
   <div class="click-action right"></div>
   <div class="jaws left"></div>
@@ -252,6 +252,7 @@
     var cachePageIndex = 0;
     var cacheEl = $("#bizzbuzz-page-cache");
 
+    var $coverImg = $("img.cover");
     var $btnBuzzReader = $("#btn-buzz-reader");
     var $btnBuzzReaderClose = $("#btn-buzz-reader-close");
     var $btnTurnPrevious = $("#btn-turn-previous");
@@ -283,10 +284,12 @@
     // TODO fix modal and screen resize callback
     //pm.setCallbackOnEnd($scope.modalFinish.show);
     //$(window).resize(webApp.util.datetime.debounce(pm.resetFrame,1000));
-
-    $btnBuzzReader.on("click", function(){
+    var launchReader = function() {
       $(pm.getFrameId()).show();
-    });
+    }
+
+    $coverImg.on("click", launchReader);
+    $btnBuzzReader.on("click", launchReader);
 
     $btnBuzzReaderClose.on("click", function(){
       $(pm.getFrameId()).hide();
