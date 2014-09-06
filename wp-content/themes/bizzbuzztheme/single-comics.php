@@ -45,6 +45,20 @@
 
 <?php get_template_part('template-part', 'topnav'); ?>
 
+<div id="modal-finish" class="modal-wrapper modal-effect"> 
+  <div class="modal-window">
+    <div class="modal-top">THE END</div> 
+    <div class="modal-bottom"> 
+      <p>You just finished this comic, we hope you had a good time, and you'll read some more.</p>
+      <div class="modal-button-wrapper text-center"> 
+        <a href="/comics" class="btn btn-primary">Back to Comics List</a>
+        <a href="javascript:void(0);" class="btn btn-default modal-close">Close</a>
+      </div> 
+    </div> 
+  </div> 
+</div>
+<div class="modal-overlay"></div>
+
 <!-- start content container -->
 <div class="row dmbs-content">
 
@@ -237,7 +251,6 @@
     </div>
   </div>
 </div>
-<!-- <div class="fog"></div>-->
 
 <?php get_footer(); ?>
 
@@ -259,6 +272,18 @@
     var $btnTurnNext = $("#btn-turn-next");
     var $pageClickAction = $(".click-action");
     var $btnChangeViewLevel = $(".btn-change-view-level");
+
+    var $modalFinish = $("#modal-finish");
+    var $modalClose = $("#modal-finish a.modal-close");
+
+    pm.setCallbackOnEnd(function() {
+      $modalFinish.addClass("modal-show");
+    });
+
+    $modalClose.on("click", function(){
+      $modalFinish.removeClass("modal-show");
+      $(pm.getFrameId()).hide();
+    });
 
     var pageCache = function(cacheSize) {
       if (!cacheSize) cacheSize = 5;
