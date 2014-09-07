@@ -599,3 +599,10 @@ overflow: initial;
     font-weight: normal;
     color: orange;
   }
+
+
+
+/* google search */
+.gsc-input-box {
+  height: 30px;
+}

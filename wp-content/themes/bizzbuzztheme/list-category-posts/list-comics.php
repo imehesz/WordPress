@@ -1,5 +1,24 @@
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
+<div class="row">
+  <div class="col-md-12">
+    <script>
+      (function() {
+       var cx = '001043702482000574187:fblpe9q0pqi';
+       var gcse = document.createElement('script');
+       gcse.type = 'text/javascript';
+       gcse.async = true;
+       gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+       '//www.google.com/cse/cse.js?cx=' + cx;
+       var s = document.getElementsByTagName('script')[0];
+       s.parentNode.insertBefore(gcse, s);
+       })();
+    </script>
+    <gcse:search></gcse:search>
+  </div>
+</div>
+
+
 <?php
 
   include( TEMPLATEPATH . '/buzz/ComicParser.php' );
